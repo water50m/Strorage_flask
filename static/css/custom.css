@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background: url('background6.jpg')no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form-select{
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  height: 325px;
+}
+
+.form-select option{
+  background: transparent;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+
+
+.form-check-label{
+  color: white;
+}
+
+.color_company{
+  color: rgb(187, 0, 0);
+}
+
+.left{
+  position: relative;
+  bottom: 20%;
+}
+.window-top-left{
+  height: 350px; 
+  width:90%; 
+  background:transparent;
+}
+
+.scroll-bg{
+  background: white;
+  
+  width: auto; 
+  padding:10% auto;
+  
+}
+
+.scroll-div{
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  
+  
+  
+}
+
+
+.input-item input{
+  width:90%;
+  margin-bottom:20px;
+  color:white;
+  left:8%;
+  padding: 10px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid rgba(241, 240, 240, 0.5);
+  backdrop-filter: blur(15px);
+  margin-bottom: 20px;
+  border-radius: 50px;
+  font-size: 20px;
+}
+
+.input-item input::-webkit-input-placeholder {
+  color: white;
+}
+
+.buttons_container{
+  width: 95%;
+  flex: 0;
+}
+
+.give_button button{
+  height: 40px;
+  font-size:20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgb(32, 182, 32);
+  color: white;
+  outline: none;
+  border: none;
+  
+}
+
+.get_button button{
+  height: 40px;
+  font-size:20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgb(255, 32, 32);
+  color: white;
+  border: none;
+  outline: none;
+  
+}
+
+.search_button button{
+  height: 40px;
+  font-size:20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgb(32, 32, 255);
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.Logout_button-inbox {
+  display: inline-block;
+  padding: 8.5px 40px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+}
+
+.custom-option {
+  display: flex;
+  justify-content: space-between;
+}
+
+td,th{
+  padding: 0 15px;
+  margin-top: 10%;
+}
+
+.highlighted {
+  background-color: #d6d5d5; /* สีเทาอ่อน (คุณสามารถเปลี่ยนได้ตามต้องการ) */
+}
+.timecounter{
+  
+  background: transparent;
+  border: 2px solid rgba(241, 240, 240, 0.5);
+  backdrop-filter: blur(15px);
+  margin-right: 20%;
+  padding: 10%;
+  border-radius: 20px;
+}
+.inbox_right{
+  background: transparent;
+  border: 2px solid rgba(241, 240, 240, 0.5);
+  backdrop-filter: blur(15px);
+  margin-top: 12%;
+  padding-top: 0;
+  padding: 10%;
+  padding-left: 10%;
+  border-radius: 20px;
+
+}
+.registerbackground{
+  background: transparent;
+  border: 2px solid rgba(241, 240, 240, 0.5);
+  backdrop-filter: blur(15px);
+}
+/* ===============================new login====================================================================================== */
+
+
+
+
+.container2{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50% ,-50%);
+  width: 75%;
+  height: 550px;
+  background: url('background6.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.container2 .content2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  background: transparent;
+  padding: 80px;
+  color: #e4e4e4;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  
+
+}
+.social-icon{
+  font-size:22px;
+  color: #e4e4e4;
+  margin-right: 10px;
+  transition: .5s ease;
+}
+.container2 .logreg-box{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42%;
+  height: 100%;
+  overflow: hidden;    
+}
+
+
+.content2 .logo{
+  font-size: 30px;
+}
+
+.text-sci h2{
+  font-size: 42px;
+}
+
+.text-sci h2 span{
+  font-size: 25px;
+}
+.text-sci p{
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+
+.logreg-box .form-box{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #e4e4e4;
+}
+
+/* ============================================================================================ */
+.logreg-box .form-box.login{
+  transform: translate(0);   
+  transition: transform .6s ease; 
+  transition-delay:.1s;   
+}
+
+.logreg-box.activeR .form-box.login{
+  transform:translate(430px)
+}
+
+.logreg-box.activeF .form-box.login{
+  transform:translate(430px)
+}
+
+
+.logreg-box .form-box.register{
+  transform: translateX(430px);
+  transition: transform .6s ease;
+  transition-delay: 0s;
+}
+
+
+.logreg-box.activeR .form-box.register{
+  transform: translateX(0);
+  transition-delay:.7s ;
+}
+
+.logreg-box .form-box.forgetP{
+  transform: translateX(430px);
+  transition: transform .6s ease;
+  transition-delay: 0s;
+}
+
+.logreg-box.activeF .form-box.forgetP{
+  transform: translateX(0);
+  transition-delay:.7s ;
+}
+
+/* ============================================================================================ */
+
+.form-box h2{
+font-size: 32px;
+text-align: center;
+}
+
+.form-box .input-box{
+  position: relative;
+  width:340px;
+  height: 50px;
+  border-bottom:2px solid #e4e4e4;
+  margin: 30px 0;
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #e4e4e4;
+  font-weight: 500;
+  padding-right: 28px;
+}
+
+.input-box label{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s ease;
+  
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+  top: -5px;
+}
+
+.input-box .icon{
+  position: absolute;
+  
+  top: 13px;
+  right:0;
+}
+
+.remember-forgot{
+  font-size: 14.5px;
+  font-weight: 500;
+  margin:-15px 0 15px;
+  display: flex;
+  justify-content:space-between;
+  
+}
+
+
+
+.remember-forgot a{
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover{
+  text-decoration: underline;
+}
+
+.btn2 {
+  width: 100%;
+  height:  45px;
+  background: #c4103d;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #e4e4e4;
+  font-weight:500;
+  box-shadow:0 0 10px rgba(0, 0, 0, .5);
+  
+}
+
+.form-box .login-register{
+  font-size:14.5px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.login-register p a{
+  color:#e4e4e4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-register p a:hover{
+  text-decoration: underline;
+}
+/* ======================================new login================================================================== */
+
+/* ======================================new register================================================================== */
+.decore-register {
+  position: relative;
+  margin-top: 40px; 
+}
+
+.decore-register .form-box.register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: url('background6.jpg')no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;  
+} 
+
+.decore-register h2{
+  color: #e4e4e4;
+}
+
+.decore-register label{
+  color: #e4e4e4;
+}
+
+.decore-register p{
+  color: #e4e4e4;
+}
+.decore-register .icon{
+  color: #e4e4e4;
+}
+
+/* -----------------------------------------register 2 -------------------------------------------------------------- */
+.flash-show{
+  font-size: 16px;
+  height: 20px;
+  
+}
+
+.flash-show .flashes{
+  margin-left: 0;
+}
+
+/* -----------------------------------------Toast -------------------------------------------------------------- */
+.toast-container{
+  background: transparent; 
+  backdrop-filter: blur(10px);
+  margin-bottom: 40px;
+  margin-bottom: 20px;
+  
+}
+
+.toast-header{
+  background: #dc3545;
+}
+
+.toast{
+  background: url('background6.jpg')no-repeat;
+  background-size: cover;
+  background-position: 10%; 
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 16px;
+  width: 250px;
+  
+}
+.toast-header-noheader{
+  height: auto;
+}
+
+
+.toast .icon ion-icon {
+  font-size: 34px;
+  transform: translateY(12px) !important;
+}
+
+
+.toast.info .icon ion-icon {
+  color: yellow;
+}
+
+.toast.success .icon ion-icon {
+  color: #4cdb3f;
+}
+
+.toast.error .icon ion-icon {
+  color: #dc3545;
+}
+.toast.error{
+  
+  border: #dc3545;
+  
+}
+
+.btn-close{
+  position: absolute;
+  top:30px;
+  right: 20px;
+}
+

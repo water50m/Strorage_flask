@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="background">
+    <div class="container container2">
+        <div class="content2">
+            <h2><ion-icon name="logo-dropbox"></ion-icon>Strorage<box-icon name='cricket-ball' ></box-icon></h2>
+            <div class="text-sci">
+                <h2>Welcome<br><span>To Our Website Strorage.</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas modi similique numquam explicabo incidunt quia nemo voluptatum eligendi, quis minus.</p>
+                    <div class="social-icon">
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"></a> 
+                    </div>
+            </div>
+        </div>
+
+        
+        <div class="logreg-box">
+            <div class="form-box login">
+                <form action="/login" method="POST">
+                    <h2>Sign in</h2>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <input type="text" name="username" autocomplete="new-password"  required >
+                          <label >Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" name="password" autocomplete="new-password" required>
+                        <label >Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label ><input type="checkbox" >Remember me</label>
+                        <a href="#" >Forgot password</a>
+                    </div>
+                    <button type="submit" class="btn btn2">Sign In</button>
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="#" class="register-link" > Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-box register">
+                <form action="{{url_for('registerloginpage')}}" method="POST">
+                    <h2>Sign up</h2>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <input type="text" name="username" required >
+                          <label >Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="text" name="email" autocomplete="new-email" required >
+                          <label >email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" name="password" autocomplete="new-password" required>
+                        <label >Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" name="confirm_password" autocomplete="new-password" required>
+                        <label >Confirm Password</label>
+                    </div>
+                        <div class="remember-forgot" >
+                            <div class="flash-show">
+                                
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn2" id="liveToastBtnregister2">Sign Up</button>
+                    <div class="login-register">
+                        <p>Already have an account? <a href="#" class="login-link" > Sign in</a></p>
+                    </div>
+                </form>
+              </div>
+            
+            
+
+        </div>
+        
+    </div>
+
+    </div>
+    <!-- toast------------------------------------------------------------------------------------------------------------------------------------ -->
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages %}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  {% for category, message in messages %}
+<div id="liveToast" class="toast {{category}}" role="alert" aria-live="assertive" aria-atomic="true">    
+  <div class="toast-header-noheader">
+
+      <span class="icon"><ion-icon name="alert-circle-outline"></ion-icon></span>
+    <strong class="me-auto ">Notification {{ category.capitalize()}}</strong>
+    
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+      {{ message }}
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+<!-- toast------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<script>
+$(document).ready(function() {
+    $(".toast").toast('show');
+});
+    
+    
+    
+    
+</script>
+
+
+
+    {% endblock %}
+

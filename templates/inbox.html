@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col-8">
+            <div class="row" >
+                <div class="col-5" > 
+                    
+                </div> 
+                    <div class="col-3" > 
+                        <h2 style="color: #e4e4e4; margin-bottom: 0; padding-top: 20px;" ><ion-icon name="logo-dropbox"></ion-icon>Strorage<box-icon name='cricket-ball' ></box-icon></h2>
+                </div> 
+                <div class="col-1 " style="padding-top: 2.6%;" > 
+                    
+                        <div class="showNumberBox">
+                            {% if iUser['number_box'] < lastbox %}  
+                                {% if iUser['number_box'] < 10 %}
+                                <h3 style="color: #ffff;">00{{iUser['number_box']}}</h3>
+                                {% elif iUser['number_box'] < 100 %}
+                                <h3 style="color: #ffff;">0{{iUser['number_box']}}</h3>
+                                {% endif %}
+                            {% else %}
+                                <h3 style="color: #ffff;">--</h3>
+                        
+                            {% endif %} 
+                        
+                            </div>
+                        
+                        
+                    </div>  
+
+                    
+                            <div class="col" style="padding-top: 20px;">
+                                
+                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                         
+                                    Box
+                                </button>
+                                
+                                
+                                     
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nmber box</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                                <form id="selected_box" action="" method="POST">
+                                                    <div class="modal-body " >
+                                                    <select class="form-select" id="selected_box" style="color: black;" name="selected_box" size="10" aria-label="Size 3 select example" >
+                                                        {% for item in empty_box %}
+                                                            <option style="margin-left: 20px;" >{{item}}</option>
+                                                        {% endfor %}    
+                                                            
+                                                       
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" id="btnselect" class="btn btn-primary" >select box</button>
+                                                    </div>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>   
+
+                    
+                        
+                    
+                
+            </div>
+                
+          <div class="row" >
+            
+            <div class="col-5 details " style="padding-top: 5%;padding-left: 5%; ">
+                
+                <div class="timecounter">
+                  <h1 style="color: white; margin-bottom: 0; margin-left: 0; " >Time left</h1>
+                  
+                  <h1 style="color: white; margin-bottom: 0; margin-top: 5%; font-size: 50px; display:inline-block ;margin-left: 5%; " >{{iUser['timeleft']+iUser['time']}} </h1>
+                  <p style="color: white; margin-bottom: 0; margin-top: 5%; font-size: 30px; display:inline-block ; "  >day</p>
+                  <div class="btn-primary" style="width: 50%; margin-top: 8%;">
+
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <button type="submit" class="form-control " id="give" style="font-size: 15px; margin-left: 5%;" name="give"  data-bs-toggle="modal" data-bs-target="#TimeModal">Add time</button>
+                    {% if iUser['time']> 0 %}
+                    <button type="submit" class="form-control " id="give" style="font-size: 20px; margin-left: 5%;" name="give"  data-bs-toggle="modal" data-bs-target="#TimeModal">
+                        <a style="text-decoration: none; color: black;" href="{{url_for('cancleaddingtime',userid=iUser['number_box'])}}">cencle</a>
+                    </button>
+                    {% else %}
+
+                    {% endif %}
+                </div>
+                  </div>
+                </div>
+                
+            </div>
+            <div class="col-6"  >
+                <!-- <h1 style="color: aliceblue;">One of three columns</h1> -->
+                <div class="window-top-left"  >
+                    
+                        
+                            
+                                <form id="multiitem" action="" method="POST" >
+                                    <input type="hidden" id="hiddenItemName" name="hiddenItemName">
+                                    <select style="padding-bottom: 20px;" class="form-select" size="13" multiple name='multiitem' multiple aria-label="Multiple select example" >    
+                                        
+                                        {% for item in iUser["item"] %}
+                                            <div class="row">
+                                                
+                                                <option style="margin-left: 20px;" >{{ item }}</option>
+                                            </div>
+                                                
+                                        {% endfor %}  
+                                    </select>
+                                </form>       
+                                        
+                            
+                  
+                
+            </div>
+            </div>
+          </div>
+
+          
+
+
+
+          <div class="row">
+            <div class="col">
+                
+                <form id="Formitem" name="Formitem" action=" " method ='POST' >
+                    
+                    <div class="row input-item">
+                        <div class="col-5">
+                            
+                        </div> 
+                    <div class="col-6">
+                        <input type="text" id="itemName" name="itemName" placeholder="Enter item name" pattern="[a-zA-Z0-9ก-๙]*" >
+                        <div class="row buttons_container text-center " >
+                        
+                        
+                            <div class="col-4 give_button " >  
+                                
+                                <button style="width: 100%;" type="button" onclick='setFormActionAndSubmit(actionUrl)'>Give</button>
+                                
+
+                            </div>
+                    
+                            <div class="col-4 get_button">
+                                
+                                <!-- <button id="btnget" style="width: 100%;" type="button" onclick='setFormActionAndSubmit(actionUrlfor_get)'>Get</button> -->
+                                <button id="btnget" style="width: 100%;" type="button" >Get</button>
+                            </div>
+                        
+                            <div class="col-4 search_button ">
+
+                                
+                                <button style="width: 100%;" type="button" onclick='setFormActionAndSubmit(actionUrlsearch)'>Search</button>
+                            </div>
+                        
+                    </div>
+                    </div>   
+                    </div>
+                
+                   
+                    
+                </form>
+            </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul style="color: red; list-style-type: none;"  class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+          </div>
+        </div>
+        <div class="col-4 " >
+            <div class="inbox_right ">
+                <div class="col top-rihght " >
+                    
+                    <div class="info_display ">
+                        <div class="info_user">
+                            <div class="hello text-center" style="color: white;"><h1>Hello</h1></div>
+                            
+                            <div class="username " style="color: white; padding-left: 5%;"><h2>{{iUser['username']}}</h3></div>
+                            <div class="username " style="color: white; padding-left: 5%;"><h4>{{iUser['email']}}</h3></div>
+                        </div>
+                        <div class="space"></div>
+                </div>
+              </div>
+              <div class="row" style="margin-top:10%;padding: 0;">
+                <div class="rent">
+                    <p style="font-size: 20px; color: white;  margin-bottom: 0;margin-left: 5%;">Add {{iUser['time']}} day</p>
+                <p style="font-size: 30px; color: white; display: inline-block; margin-bottom: 0;margin-left: 5%;">Rent</p>
+                <p style="font-size: 20px; color: white; display: inline-block; margin-left: 2%;">{{iUser['price']}} Bath</p>
+                </div>
+                    <div class="col-6  ">
+                        
+                            <a class="Logout_button-inbox" href="/" >Logout</a>
+                        
+                    </div>
+
+                    <div class="col-6 search_button ">
+
+                        <a class="Logout_button-inbox" href="{{url_for('confirm',userid=iUser['number_box'])}}" >confirm</a>
+                    </div>
+                    
+                
+
+                    
+
+              </div>
+        </div>
+      </div>
+      <!-- Modal selec day -->
+      <form action="{{url_for('addtime',userid=iUser['number_box'])}}" method="POST">
+      <div class="modal fade" id="TimeModal" tabindex="-1" aria-labelledby="TimeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">The number of days you want to hire box</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p>10 Bath per day</p>
+            <p>50 Bath per week(7day)</p>
+            <p>150 Bath per mouth(30day)</p>
+            <input type="number" id="thedaytime" name="thedaytime" class="form-control" placeholder="day" >
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script>
+    function setFormActionAndSubmit(actionUrl) {
+    var form = document.getElementById('Formitem');
+    form.action = actionUrl;
+    form.submit();
+}
+
+
+
+var actionUrl = "{{url_for('give_item', userid=iUser['number_box'])}}"
+var actionUrlsearch = "{{url_for('search', userid=iUser['number_box'])}}"
+
+document.getElementById("btnselect").addEventListener("click", function() {
+    var selectElement = document.getElementById("selected_box").querySelector("select[name='selected_box']");
+    var selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+    var form = document.getElementById("selected_box");
+    form.action = "{{url_for('selectbox',userid = iUser['number_box'])}}";
+    form.submit();
+});
+
+
+
+document.getElementById("btnget").addEventListener("click", function() {
+    var externalInputValue = document.getElementById("itemName").value;
+    var hiddenInput = document.getElementById("hiddenItemName");
+    
+    hiddenInput.value = externalInputValue;
+
+    var selectElement = document.getElementById("multiitem").querySelector("select[name='multiitem']");
+    var selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+    
+    var form = document.getElementById("multiitem");
+
+    form.action = "{{url_for('delete_item', userid=iUser['number_box'])}}";
+    form.submit();
+    
+    
+});
+
+$(document).on('click', function(e) {
+    if (!$(e.target).closest('.form-select').length) {
+        $('.form-select').val([]).change(); // ยกเลิกการเลือกและ trigger event change
+    }
+});
+
+
+
+
+</script>
+{% endblock %}

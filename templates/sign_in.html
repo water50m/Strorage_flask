@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+
+<main class="form-signin w-100 m-auto">
+    <form action="/login" method="POST">
+      <h1 style="color: white;" class="h3 mb-3 fw-normal">Please sign in</h1>
+  
+      <div class="form-floating my-2">
+        <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" value="{{username}}" required>
+        <label for="floatingUsername">Username</label>
+      </div>
+      <div class="form-floating my-2">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="{{password}}" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <dic class="row aleart" style="margin-left: 1px; height: 30px;">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              <ul style="color: red; list-style-type: none;"  class="flashes">
+                  {% for message in messages %}
+                      <li>{{ message }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endwith %}
+    </dic>
+      <button  class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+      
+      <p class="mt-5 mb-3 text-body-secondary"> 
+        <span style="color: white;">Don't have an account yet?</span> 
+        <a href="/call_register">Click here</a> 
+        <span style="color: white;">to sign up</span> 
+    </p>
+    
+      
+    </form>
+  </main>
+
+
+  <div class="container">
+    <footer class="text-center py-3 my-4 border-top">
+        <span class="mb-3 mb-md-0 text-body-secondary color_company" style="color: white;">© 2023 Company, Inc</span>
+    </footer>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+
+<main class="form-signin w-100 m-auto registerbackground">
+  <div class="">
+  <form action="/register" method="POST">
+    <h1 class="h3 mb-3 fw-normal" style="color: white;">Sign Up</h1>
+
+    <div class="form-floating my-2">
+      <input type="number" class="form-control" id="floatingUsername" placeholder="Box number" name="number_box" value="{{number_box}}" >
+      <label for="number_box">Box number</label>
+    </div>
+    <div class="form-floating my-2">
+      <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" value="{{username}}" >
+      <label for="username">Username</label>
+    </div>
+
+    <div class="form-floating my-2">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" value="{{email}}" >
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating my-2">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="{{password}}" >
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating my-2">
+      <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" name="confirm_password" value="{{confirm_password}}" >
+      <label for="ConfirmPassword">Confirm Password</label>
+    </div>
+    <dic class="row aleart" style="margin-left: 1px; height: 30px;">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: red; list-style-type: none;"  class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+  </dic>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign Up</button>
+  </div>
+
+</main>
+
+<div class="container">
+  <footer class="text-center py-3 my-4 border-top">
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
+  </footer>
+</div>
+
+{% endblock %}

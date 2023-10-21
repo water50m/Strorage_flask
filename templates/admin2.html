@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+ 
+    <div class="row">
+        <!-- ---------------------------------------------------------------top left box------------------------------------------------------------ -->
+        <div class="col-8" >
+            <div class="row">
+            <div class="col-8" >
+            <h1 style="color: #ffff;">Admin</h1>
+        </div>
+        <div class="col-4" >        
+                
+                
+                
+                </div> 
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------top right box------------------------------------------------------------ -->
+        <div class="col-4">
+            2
+        </div>
+    </div>
+   <!-- ---------------------------------------------------------------mid box------------------------------------------------------------ --> 
+    <div class="row">
+
+        <!-- ---------------------------------------------------------------mid right box------------------------------------------------------------ --> 
+        <div class="col-8">
+            <!-- <h1 style="color: aliceblue;">One of three columns</h1> -->
+                        <div class="row head " style="background-color: white; height: 35px; padding-top: 5px; padding-left: 15px; width: 90%; margin-left: 0;">
+                            <div class="col-3" style="padding-left: 54px;"  >
+                                <thead>
+                                    
+                                        <tr>
+                                            <th >No.</th>
+                                            
+                                        </tr>
+                                </thead>
+                            </div> 
+                                <div class="col-3" style="padding-left: 48px;">  
+                                    <thead>
+                                        <tr>
+                                            <th >User</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                </div>
+                                <div class="col-3" style="padding-left:80px;">
+                                    <thead>
+                                        
+                                            <tr>
+                                                <th >BOX</th>
+                                                
+                                            </tr>
+                                    </thead>
+                                </div> 
+                                <div class="col-3"  style="padding-left: 43px;">
+                                    <thead>
+                                        
+                                            <tr>
+                                                <th >Left time(day)</th>
+                                                
+                                                
+                                            </tr>
+                                    </thead>
+                                </div>  
+                            </div>
+            <div class="window-top-left">
+                <div class="scroll-bg">
+                    <div class="scroll-div">
+                        <div class="scroll-obj">
+                            <form id="selectuser" action="" method="POST">
+                                <input type="hidden" id="hiddenItemName" name="hiddenItemName">
+                                <table class="table table-hover">
+                                    <!-- <thead>
+                                        <tr>
+                                            <th>Number</th>
+                                            <th>User</th>
+                                            <th>Using Box</th>
+                                            <th>Left Time (days)</th>
+                                        </tr>
+                                    </thead> -->
+                                    <tbody style="height: 100%; ">
+                                        <div class="scrollbar-bg">
+                                            <div class="scrollbar-div " >
+                                                <div class="scrollbar-object" >                                      
+                                                    {% for item in user %}
+                                                    <tr  data-id="" id="selectuser" data-link="{{url_for('edituser',userid=item['number_box'])}}" name="selectuser" class="clickable-row" value="{{ item['number'] }}" data-bs-toggle="tooltip" data-bs-placement="top">
+                                                    
+                                                        <td class="text-center">{{ item['num'] }}</td>
+                                                        <td class="text-center">{{ item['username'] }}</td>
+                                                        <td class="text-center">
+                                                            {% if item['number_box'] > lastbox %}
+                                                                --
+                                                            {% else %}
+                                                                {{ item['number_box'] }}
+                                                            {% endif %}
+                                                        </td>
+                                                        
+                                                        <td class="text-center">{{ item['timeleft'] }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>  
+                                        </div>    
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- ---------------------------------------------------------------button box------------------------------------------------------------ --> 
+    <div class="row">
+        <!-- ---------------------------------------------------------------button left box------------------------------------------------------------ --> 
+        <div class="col-8">
+            <div class="">
+                
+                <form id="Formsearch" name="Formitem" action="{{url_for('adminsearch',user=user)}} " method ='POST' >
+                    
+                    <div class="row input-item">
+
+                    <div class="col">
+                        <input type="text" id="searchName" name="searchName" placeholder="Enter box number or username or email" pattern="[a-zA-Z0-9ก-๙]*" >
+                    </div>   
+                    </div>
+                
+                   
+                    <div class="row buttons_container text-center ">
+                    
+                        <div class="col-4 search_button ">
+
+                            
+                            <button style="width: 100%;" type="submit" >Search</button>
+                        </div>
+                 
+                        <div class="col-4 buttons_container " >
+                            <div class="btn-group" role="group" aria-label="Basic outlined example" style="width: 300px;">
+                                <a href="/info_user" type="button" class="btn btn-outline-success">File</a>
+                                <a href="/test" type="button" class="btn btn-outline-danger">Server</a>
+                            <!-- <button id="btndelete" style="width: 100%;" type="button" >file</button> -->
+                        </div>
+                        </div>
+                     
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+                <!-- ---------------------------------------------------------------button right box------------------------------------------------------------ --> 
+
+        <div class="col-4">
+            
+            
+        </div>
+    </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    let submitButton = document.getElementById("btnedit");
+    let form = document.getElementById("selectuser");
+
+    submitButton.addEventListener("click", function() {
+        form.action = button.getAttribute("data-link");
+        form.submit();
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    let rows = document.querySelectorAll(".clickable-row");
+    
+    rows.forEach(row => {
+        row.addEventListener("dblclick", function() {
+            window.location.href = row.getAttribute("data-link");
+        });
+    });
+});
+
+
+</script>
+
+
+
+
+
+{% endblock %}

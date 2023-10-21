@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+<div class="decore-register">
+  <div class="form-box register">
+    <form action="{{url_for('register')}}" method="POST">
+        <h2>Sign up</h2>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <input type="text" name="username" required >
+              <label >Username</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <input type="text" name="email" autocomplete="new-email" required >
+              <label >email</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <input type="password" name="password" autocomplete="new-password" required>
+            <label >Password</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <input type="password" name="confirm_password" autocomplete="new-password" required>
+            <label >Confirm Password</label>
+        </div>
+            <div class="remember-forgot" >
+                <div class="flash-show">
+                    
+                </div>
+            </div>
+        <button type="submit" class="btn btn2" id="liveToastBtnregister2">Sign Up</button>
+        <div class="login-register">
+            <p>Already have an account? <a href="/" > Sign in</a></p>
+        </div>
+    </form>
+  </div>
+
+  
+
+
+<!-- toast------------------------------------------------------------------------------------------------------------------------------------ -->
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    {% for category, message in messages %}
+  <div id="liveToast" class="toast {{category}}" role="alert" aria-live="assertive" aria-atomic="true">    
+    <div class="toast-header-noheader">
+
+        <span class="icon"><ion-icon name="alert-circle-outline"></ion-icon></span>
+      <strong class="me-auto ">Notification {{ category.capitalize()}}</strong>
+      
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        {{ message }}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+  {% endwith %}
+
+
+<!-- toast------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<script>
+$(document).ready(function() {
+    $(".toast").toast('show');
+});
+
+
+
+
+</script>
+{% endblock %}
+
